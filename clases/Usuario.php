@@ -15,7 +15,7 @@ class User{
         $this->password = $pass;
         $this->repass= $repass;
         $this->avatar = $avatar;
-        $this->puntaje;= $puntaje;
+        //$this->puntaje;= $puntaje;
     }
     public function getNombre(){
         return $this->nombre;
@@ -48,10 +48,10 @@ class User{
     public function setAvatar($avatar){
         $this->avatar = $avatar;
     }
-    public function getPuntaje(){
-        return $this->pumtaje;
+    /*public function getPuntaje(){
+        return $this->puntaje;
     }
     public function setPuntaje($puntaje){
         $this->puntaje = $puntaje;
-    }
+    }*/
     }
