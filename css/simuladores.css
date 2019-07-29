@@ -1,0 +1,398 @@
+/* las clases que existen hasta ahora son: container, main-header, nav1, nav2, izquierda, derecha, regis (para registro y login) */
+
+/* creo que es muy buena practica ir poniendo comentarios de los cambios */
+
+*{
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0;
+
+
+}
+ .encabezado-home{
+   background-color: black;
+   display: flex;
+
+ }
+
+ .logo-home{
+  margin: 0 auto;
+  height: 15vh;
+  align-content: center;
+  margin-top: 10px;
+
+ }
+ nav {
+   background-color: white;
+ }
+ nav ul{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   list-style-type: none;
+   width: 100vw;
+
+ }
+ nav ul li {
+   margin: 5px 5px;
+   background-color: #000000;
+   width: 110px;
+   text-align: center;
+   padding: 3px;
+ }
+
+nav ul li a {
+   color: white;
+   text-decoration: none;
+   margin: 5px;
+   font-size: 0.8rem;
+   font-family: sans-serif;
+ }
+ .section-home{
+  background-image: url(../imgs/bg-lluvia.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ #button-play {
+  height: 47px;
+  width: 100px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  font-size: medium;
+ }
+
+/*Aca comienza el CSS de las demas paginas (Login, Preguntas, Register)*/
+
+
+
+
+  .container-body{
+  background-image: url(../imgs/bg-lluvia.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.body-section {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90vh;
+  width: 80vw;
+}
+
+.main-header {
+background-color: rgba(0, 0, 0, 0.5);
+width: 80vw;
+
+}
+
+.nav-desplazado {
+    position: relative;
+    top: 35vh;
+   }
+
+.logo{
+  width: 22vw;
+  margin-top: 2vw;
+}
+.form-group{
+  margin-bottom: 10vw;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+#button{
+  height: 27px;
+  width: 65px;
+  background-color: black;
+  color: white;
+  border-radius: 6px;
+  font-size: small;
+  margin: 0;
+
+}
+.recordarme{
+  text-align: center;
+  font-size: small;
+}
+
+.email-pass{
+  margin-bottom: 20px;
+      margin: 62px;
+      font-size: 22px;
+}
+
+ .encabezado{
+   background-color: black;
+   display: flex;
+   }
+
+
+  section.body-section h2{
+  font-size: 1.5rem;
+    margin-top: 15vh;
+}
+.alineacion-email-pass{
+  margin: 0;
+}
+.campos{
+  display: flex;
+
+}
+
+.botones-login {
+    margin: 0;
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.fondo-campo{
+  opacity: 100;
+  background-color: #00000680;
+  border-color: white;
+  border-radius: 5px;
+  margin-top: 3px;
+  color: white;
+  height: 30px;
+}
+/* PASS RECUPERADA */
+.passModificada a{
+  color: white;
+  text-decoration: none;
+  background-color: black;
+  padding: 5px;
+}
+
+
+
+/*preguntas*/
+
+.simuladoreglas{
+  width: 75vw;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.simuladoreglas ol {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.reglas{
+  margin-bottom: 25px;
+  font-size: 23px;
+  text-align: justify;
+   }
+@media (max-width:960px) {
+
+  .body-section {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
+    width: 70vw;
+     }
+.logo{
+  width: 30vw;
+  margin-top: 2vw;
+}
+
+.form-group{
+  margin-bottom: 15vw;
+  color: white;
+  font-family: sans-serif;
+
+}
+#button-ingresar{
+  height: 27px;
+  width: 65px;
+  background-color: black;
+  color: white;
+  border-radius: 6px;
+  font-size: small;
+  margin: 0;
+}
+#button-cancelar{
+  height: 27px;
+  width: 65px;
+  background-color: black;
+  color: white;
+  border-radius: 6px;
+  font-size: small;
+  margin: 0;
+}
+.recordarme{
+  text-align: center;
+  font-size: small;
+}
+
+.email-pass{
+    margin: 0px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+form h2{
+  font-size: 1.8rem;
+  padding: 35px;
+}
+.alineacion-email-pass{
+  margin: 0;
+}
+.campos{
+  display: flex;
+  flex-direction: column;
+}
+
+.botones-login {
+    margin: 0;
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    margin-top: 45px;
+}
+
+.fondo-campo{
+  opacity: 100;
+  background-color: #00000680;
+  border-color: white;
+  border-radius: 5px;
+  margin-top: 3px;
+  color: white;
+}
+
+.nav-desplazado{
+  position: relative;
+  top: 190px;
+}
+/*REGLAS*/
+.simuladoreglas {
+    color: white;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+}
+
+
+.simuladoreglas ol {
+    display: flex;
+    flex-wrap: wrap;
+    width: 82vw;
+    height: 36vh;
+    margin-left: -47px;
+}
+
+@media (max-width:480px) {
+
+
+/*movil de home*/
+
+  nav ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style-type: none;
+
+  }
+  nav ul li {
+    margin: 1px 0px;
+    background-color: #000000;
+    width: 100%;
+    text-align: center;
+    padding: 3px;
+  }
+  /*movil las demas*/
+  .container-body {
+    background-image: url(../imgs/bg-lluvia.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.body-section {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 68vw;
+    }
+  .nav-desplazado {
+    position: absolute;
+    top: 200px;
+    left: 0;
+}
+
+.nav-desplazado ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style-type: none;
+
+}
+.nav-desplazado ul li {
+  margin: 1px 0px;
+  background-color: #A0A0A0;
+  width: 100%;
+  text-align: center;
+  padding: 3px;
+}
+.logo {
+    width: 55vw;
+    margin-top: 11vw;
+}
+
+.form-group {
+    margin-bottom: 40vw;
+    color: white;
+    font-family: sans-serif;
+     }
+.registrarse{
+  padding: 25px;
+}
+form h2{
+
+  padding: 50px;
+}
+.simuladoreglas ol {
+    display: flex;
+    flex-wrap: wrap;
+    width: 58vw;
+    height: 35vh;
+    margin-bottom: 119px;
+}
+.simuladoreglas ol {
+    display: flex;
+    flex-wrap: wrap;
+    width: 58vw;
+    height: 35vh;
+    margin-bottom: 119px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+     }
+     .simuladoreglas ol li {
+    width: 52vw;
+    padding: 8px;
+    margin-right: 0px;
+}
