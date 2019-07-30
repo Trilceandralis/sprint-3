@@ -1,5 +1,3 @@
-<?php
-
 <header class="main-header">
   <h1> LOS SIMULADORES </h1>
   <img src="" alt="" class="">
@@ -12,6 +10,3 @@
     </ul>
   </nav>
 </header>
-
-
-?>

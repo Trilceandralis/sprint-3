@@ -1,15 +1,13 @@
 <?php
 class Usuario{
-    protected $name;
+    protected $nombre;
     protected $email;
     protected $pass;
     protected $repass;
     protected $avatar;
     protected $puntaje;
 
-
-
-    public function __construct($email,$pass,$repass=null, $nombre=null,$avatar=null, $puntaje=null){
+    public function __construct($email,$pass, $repass=null, $nombre=null,$avatar=null, $puntaje=null){
         $this->nombre = $nombre;
         $this->email = $email;
         $this->pass = $pass;

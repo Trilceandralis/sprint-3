@@ -4,9 +4,7 @@ class BaseMYSQL{
     static public function conexion($host,$db_nombre,$usuario,$pass,$puerto,$charset){
         try {
 
-        $dsn = "mysql:dbname=fumigadores;host=127.0.0.1;port=8889";
-        $usuario = "root";
-        $pass="root";
+        $dsn = "mysql:dbname=$db_nombre;host=$host;port=$puerto";
         $pdo = new PDO ($dsn, $usuario, $pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             return $pdo;
@@ -29,12 +27,12 @@ class BaseMYSQL{
     }
 
     static public function guardarUsuario($pdo,$usuario,$tabla,$avatar){
-        $sql = "insert into $tabla (nombre,email,pass,avatar) values (:nombre,:email,:pass,:avatar)";
+        $sql = "insert into $tabla (nombre,avatar,email,password) values (:nombre,:avatar,:email,:password)";
         $query = $pdo->prepare($sql);
         $query->bindValue(':nombre',$usuario->getnombre());
-        $query->bindValue(':email',$usuario->getEmail());
-        $query->bindValue(':pass',Encriptar::hashpass($usuario->getpass()));
         $query->bindValue(':avatar',$avatar);
+        $query->bindValue(':email',$usuario->getEmail());
+        $query->bindValue(':password',Encriptar::hashpass($usuario->getpass()));
         // $query->bindValue('role',1); FALTARIA AGREGAR ROL EN LA FUNCION "GuardarUsuario" y en variable $sql.
         $query->execute();
 

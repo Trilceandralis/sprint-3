@@ -10,9 +10,9 @@ require_once("autoload.php");
         if($usuarioEncontrado != false){
           $errores["email"]= "ya estás Registrado";
         }else{
-      $avatar = $registro->armarAvatar($usuario->getAvatar());
-        BaseMYSQL::guardarUsuario($pdo,$usuario,'usuarios',$avatar);
-        redirect ("login.php");
+          $avatar = $registro->armarAvatar($_FILES);
+            BaseMYSQL::guardarUsuario($pdo,$usuario,'usuarios',$avatar);
+          redirect("login.php");
       }
     }
   }
