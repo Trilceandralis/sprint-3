@@ -1,10 +1,10 @@
 <?php
 require_once("autoload.php");
 if($_POST){
-  $usuario = new Usuario($_POST["email"],$_POST["password"]);
+  $usuario = new Usuario($_POST["email"],$_POST["pass"]);
   $errores= $validar->validarLogin($usuario);
       if(count($errores)==0){
-  $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail(),$pdo,'users');
+  $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail(),$pdo,'usuarios');
   if($usuarioEncontrado == false){
     $errores["email"]="Usuario no registrado";
   }else{

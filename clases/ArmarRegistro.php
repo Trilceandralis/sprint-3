@@ -20,7 +20,7 @@ class ArmarRegistro{
         $usuario = [
             "name"=>$registro->getNombre(),
             "email"=>$registro->getEmail(),
-            "password"=> Hashear::hashPass($registro->getPass()),
+            "pass"=> Encriptar::hashPass($registro->getPass()),
             "avatar"=>$avatar,
             "role"=>1
         ];

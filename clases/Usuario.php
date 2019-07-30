@@ -1,5 +1,5 @@
 <?php
-class User{
+class Usuario{
     protected $name;
     protected $email;
     protected $pass;
@@ -9,10 +9,10 @@ class User{
 
 
 
-    public function __construct($email,$password,$repass=null, $name=null,$avatar=null, $puntaje=null){
-        $this->name = $name;
+    public function __construct($email,$pass,$repass=null, $nombre=null,$avatar=null, $puntaje=null){
+        $this->nombre = $nombre;
         $this->email = $email;
-        $this->password = $pass;
+        $this->pass = $pass;
         $this->repass= $repass;
         $this->avatar = $avatar;
         //$this->puntaje;= $puntaje;
@@ -35,10 +35,11 @@ class User{
     public function setPass($pass){
         $this->pass = $pass;
     }
+
     public function getRepass(){
         return $this->repass;
     }
-    public function setRepassword($pass){
+    public function setRepass($repass){
         $this->repass = $repass;
     }
 

@@ -3,15 +3,15 @@ require_once("autoload.php");
 
 
     if ($_POST){
-      $usuario = new User($_POST["email"],$_POST["pass"],$_POST["repass"],$_POST["nombre"],$_FILES );
+      $usuario = new Usuario($_POST["email"],$_POST["pass"],$_POST["repass"],$_POST["nombre"],$_FILES );
       $errores = $validar->validarUsuario($usuario, $_POST["repass"]);
         if(count($errores)==0){
-          $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail(),$pdo,'users');
+          $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail(),$pdo,'usuarios');
         if($usuarioEncontrado != false){
           $errores["email"]= "ya estás Registrado";
         }else{
       $avatar = $registro->armarAvatar($usuario->getAvatar());
-        BaseMYSQL::guardarUsuario($pdo,$usuario,'users',$avatar);
+        BaseMYSQL::guardarUsuario($pdo,$usuario,'usuarios',$avatar);
         redirect ("login.php");
       }
     }
@@ -55,22 +55,22 @@ require_once("autoload.php");
 
           <h2>REGISTRARME</h2>
 
-          <form class="form-group" action="" method="POST" enctype= "multipart/form-data" >
+          <form class="form-group" action="" method="POST" enctype= "multipart/form-data">
 
 
             <div class="campos">
 
-              <input id="nombre" class="fondo-campo" type="text" name="nombre" value="<?= (isset($errores["nombre"]))? "" : persistir("nombre"); ?>" placeholder="Nombre" />
+              <input id="nombre" class="fondo-campo" type="text" name="nombre" value="" placeholder="Nombre" >
 
-              <input id="email" class="fondo-campo" type="email" name="email" value="<?=(isset($errores["email"]))? "" : persistir("email");?>" placeholder="Email"/>
-
-
-              <input id="pass" class="fondo-campo" type="password" name="pass" value="" placeholder="Password" required />
+              <input id="email" class="fondo-campo" type="email" name="email" value="" placeholder="Email" >
 
 
-              <input id="repass" class="fondo-campo" type="password" name="repass" value="" placeholder="Reingrese Password" required>
+              <input id="pass" class="fondo-campo" type="password" name="pass" value="" placeholder="Password" required >
 
-              <input type="file" name="avatar" value="" placeholder="Insertar imagen" />
+
+              <input id="repass" class="fondo-campo" type="password" name="repass" value="" placeholder="Reingrese Password" required >
+
+              <input type="file" name="avatar" value="" placeholder="Insertar imagen" >
 
           </div>
 

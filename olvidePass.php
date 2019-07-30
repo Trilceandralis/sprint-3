@@ -1,19 +1,21 @@
 <?php
-include_once("controladores/funcionesFUMI.php");
-if ($_POST){
-  $errores=validar($_POST,"olvidePass");
+require_once("autoload.php");
+if($_POST){
+  $usuario = new Usuario($_POST["email"],$_POST["pass"],$_POST["repass"]);
+  $errores= $validar->validarOlvide($usuario);
   if(count($errores)==0){
-    $usuario = buscarEmail($_POST["email"]);
-    if($usuario == null){
-      $errores["email"]="Usuario no existe en nuestra base de datos";
+  $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail(),$pdo,'usuarios');
+    if($usuarioEncontrado == false){
+      $errores["email"]="Usuario no registrado";
     }else{
-        $registro = armarRegistroOlvide($_POST);
-          header("location: passRecuperada.php");
-          exit;
+
+        $usuarios = setPass($pass);
+          redirect("cambioContraseña.php");
     }
   }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

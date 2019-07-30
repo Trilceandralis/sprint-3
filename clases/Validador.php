@@ -4,7 +4,7 @@ class Validador{
     public function validarUsuario($usuario){
         $errores = [];
 
-      $nombre = trim($usuario->getName());
+      $nombre = trim($usuario->getNombre());
         if (empty($nombre)){
         $errores["nombre"]="Complete su nombre";
         }
@@ -69,15 +69,15 @@ class Validador{
           if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $errores["email"]="Email inválido";
           }
-        $password= trim($usuario->getPass());
+        $pass= trim($usuario->getPass());
 
-        $repassword = trim($usuario->getRepass());
+        $repass = trim($usuario->getRepass());
 
 
         if(empty($pass)){
             $errores["pass"]= "debes ingresar una password";
-        }elseif (strlen($password)<8) {
-            $errores["password"]="La contraseña debe tener como mínimo 8 caracteres";
+        }elseif (strlen($pass)<8) {
+            $errores["pass"]="La contraseña debe tener como mínimo 8 caracteres";
         }
         if(empty($repass)){
             $errores["repass"]= "debes confirmar la contraseña";
