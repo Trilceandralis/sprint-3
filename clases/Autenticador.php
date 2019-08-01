@@ -1,14 +1,14 @@
 <?php
 class Autenticador{
-    static public function iniciarSession(){
+    static public function iniciarSesion(){
         if(!isset($_SESSION)){
             session_start();
         }
     }
     static public function  verificarPass($pass,$passHash){
-        return pass_verify($pass,$passHash);
+        return password_verify($pass,$passHash);
     }
-    static public function seteoUsuario($user,$dato){
+    static public function seteoUsuario($user){
     $_SESSION["nombre"]=$user["nombre"];
     $_SESSION["email"] = $user["email"];
     $_SESSION["perfil"]= $user["perfil"];
@@ -17,7 +17,7 @@ class Autenticador{
     ACA DANI CIERRA seteoUsuario y hace lo sgte.:
     static public function seteoCookie($user){
             setcookie("email",$dato["email"],time()+3600);
-            setcookie("pass",$dato["pass"],time()+3600);
+            setcookie("password",$dato["password"],time()+3600);
     }
     static public function validarUsuario(){
         if(isset($_SESSION["email"])){
@@ -33,7 +33,7 @@ class Autenticador{
 */
     if(isset($dato["recordar"]) ){
         setcookie("email",$dato["email"],time()+3600);
-        setcookie("pass",$dato["pass"],time()+3600);
+        setcookie("password",$dato["password"],time()+3600);
     }
 }
     static public function validarUsuario(){

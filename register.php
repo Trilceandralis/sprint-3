@@ -3,8 +3,8 @@ require_once("autoload.php");
 
 
     if ($_POST){
-      $usuario = new Usuario($_POST["email"],$_POST["pass"],$_POST["repass"],$_POST["nombre"],$_FILES );
-      $errores = $validar->validarUsuario($usuario, $_POST["repass"]);
+      $usuario = new Usuario($_POST["email"],$_POST["password"],$_POST["repassword"],$_POST["nombre"],$_FILES );
+      $errores = $validar->validarUsuario($usuario, $_POST["repassword"]);
         if(count($errores)==0){
           $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail(),$pdo,'usuarios');
         if($usuarioEncontrado != false){
@@ -65,10 +65,10 @@ require_once("autoload.php");
               <input id="email" class="fondo-campo" type="email" name="email" value="" placeholder="Email" >
 
 
-              <input id="pass" class="fondo-campo" type="password" name="pass" value="" placeholder="Password" required >
+              <input id="password" class="fondo-campo" type="password" name="password" value="" placeholder="Password" required >
 
 
-              <input id="repass" class="fondo-campo" type="password" name="repass" value="" placeholder="Reingrese Password" required >
+              <input id="repassword" class="fondo-campo" type="password" name="repassword" value="" placeholder="Reingrese Password" required >
 
               <input type="file" name="avatar" value="" placeholder="Insertar imagen" >
 

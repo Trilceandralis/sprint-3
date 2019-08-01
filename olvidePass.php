@@ -1,16 +1,16 @@
 <?php
 require_once("autoload.php");
 if($_POST){
-  $usuario = new Usuario($_POST["email"],$_POST["pass"],$_POST["repass"]);
+  $usuario = new Usuario($_POST["email"],$_POST["password"],$_POST["repassword"]);
   $errores= $validar->validarOlvide($usuario);
   if(count($errores)==0){
   $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail(),$pdo,'usuarios');
     if($usuarioEncontrado == false){
       $errores["email"]="Usuario no registrado";
     }else{
-
-        $usuarios = setPass($pass);
-          redirect("cambioContraseña.php");
+  
+        $usuarios = BaseMYSQL::buscar ;
+          redirect("passRecuperada.php");
     }
   }
 }
@@ -55,10 +55,10 @@ if($_POST){
               <input id="email" class="fondo-campo" type="email" name="email" value="<?=(isset($errores["email"]))? "" : persistir("email");?>" placeholder="Email"/>
 
 
-              <input id="pass" class="fondo-campo" type="password" name="pass" value="" placeholder="Password" required />
+              <input id="password" class="fondo-campo" type="password" name="password" value="" placeholder="Password" required />
 
 
-              <input id="repass" class="fondo-campo" type="password" name="repass" value="" placeholder="Reingrese Password" required>
+              <input id="repassword" class="fondo-campo" type="password" name="repassword" value="" placeholder="Reingrese Password" required>
 
 
 

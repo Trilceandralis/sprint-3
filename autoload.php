@@ -20,7 +20,7 @@ $pdo = BaseMYSQL::conexion($host,$bd,$usuario,$pass,$puerto,$charset);
 
 $validar = new Validador();
 $registro = new ArmarRegistro();
-Autenticador::iniciarSession();
+Autenticador::iniciarSesion();
 
 
  ?>

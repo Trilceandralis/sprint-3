@@ -16,9 +16,8 @@ class BaseMYSQL{
         }
     }
     static public function buscarPorEmail($email,$pdo,$tabla){
-        //Aquí hago la sentencia select, para buscar el email, estoy usando bindeo de parámetros por value
+
         $sql = "select * from $tabla where email = :email";
-        // Aquí ejecuto el prepare de los datos
         $query = $pdo->prepare($sql);
         $query->bindValue(':email',$email);
         $query->execute();
@@ -38,4 +37,8 @@ class BaseMYSQL{
 
     }
 
+    static public function updatePassword ($nuevaPassword, $usuario){
+      $hasheada = Ecriptar::hashpass($nuevaPassword);
+      $sql = "UPDATE Usuarios SET password = '$hasheada' WHERE id = '$usuario[$id]'";
+    }
 }

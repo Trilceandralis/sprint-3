@@ -18,12 +18,12 @@ class Validador{
 
       $repass= trim($usuario->getRepass());
         if(empty($pass)){
-        $errores["pass"] = "Introduzca su contraseña";
+        $errores["password"] = "Introduzca su contraseña";
           }
         elseif (strlen($pass)<8) {
-        $errores["pass"] = "La contraseña debe tener como mínimo ocho caracteres";
+        $errores["password"] = "La contraseña debe tener como mínimo ocho caracteres";
             }elseif ($pass != $repass) {
-        $errores["repass"]= "Las contraseñas no coinciden";
+        $errores["repassword"]= "Las contraseñas no coinciden";
             }
         if($usuario->getAvatar()!=null){
           if($_FILES["avatar"]["error"]!=UPLOAD_ERR_OK){
@@ -49,9 +49,9 @@ class Validador{
         $pass= trim($usuario->getPass());
 
           if(empty($pass)){
-            $errores["pass"]= "No puedes dejar el campo en blanco";
+            $errores["password"]= "No puedes dejar el campo en blanco";
           }elseif (strlen($pass)<8) {
-            $errores["pass"]="La contraseña debe tener como mínimo ocho caracteres";
+            $errores["password"]="La contraseña debe tener como mínimo ocho caracteres";
         }
 
       return $errores;
@@ -75,12 +75,12 @@ class Validador{
 
 
         if(empty($pass)){
-            $errores["pass"]= "debes ingresar una password";
+            $errores["password"]= "debes ingresar una password";
         }elseif (strlen($pass)<8) {
-            $errores["pass"]="La contraseña debe tener como mínimo 8 caracteres";
+            $errores["password"]="La contraseña debe tener como mínimo 8 caracteres";
         }
         if(empty($repass)){
-            $errores["repass"]= "debes confirmar la contraseña";
+            $errores["repassword"]= "debes confirmar la contraseña";
         }
 
         return $errores;

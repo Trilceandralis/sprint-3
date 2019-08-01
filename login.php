@@ -1,17 +1,17 @@
 <?php
 require_once("autoload.php");
 if($_POST){
-  $usuario = new Usuario($_POST["email"],$_POST["pass"]);
+  $usuario = new Usuario($_POST["email"],$_POST["password"]);
   $errores= $validar->validarLogin($usuario);
       if(count($errores)==0){
   $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail(),$pdo,'usuarios');
   if($usuarioEncontrado == false){
     $errores["email"]="Usuario no registrado";
   }else{
-    if(Autenticador::verificarPass($usuario->getPass(),$usuarioEncontrado["pass"] )!=true){
-      $errores["pass"]="Error en los datos verifique";
+    if(Autenticador::verificarPass($usuario->getPass(),$usuarioEncontrado["password"])!=true){
+      $errores["password"]="Error en los datos verifique";
     }else{
-      Autenticador::seteoSesion($usuarioEncontrado);
+      Autenticador::seteoUsuario($usuarioEncontrado);
       if(isset($_POST["recordar"])){
         Autenticador::seteoCookie($usuarioEncontrado);
       }
@@ -70,7 +70,7 @@ if($_POST){
 
               <input id="email" class="fondo-campo" type="email" name="email" value="" placeholder="Email" required>
 
-              <input id="pass" class="fondo-campo" type="password" name="pass" value="" placeholder="Password" required>
+              <input id="password" class="fondo-campo" type="password" name="password" value="" placeholder="Password" required>
 
             </div>
 
