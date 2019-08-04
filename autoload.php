@@ -10,10 +10,10 @@ require_once("clases/BaseMYSQL.php");
 require_once("clases/Query.php");
 
 $host = "localhost";
-$bd = "fumigadores";
+$bd = "simuladores";
 $usuario = "root";
 $pass = "root";
-$puerto = "3306";
+$puerto = "8889";
 $charset = "utf8mb4";
 
 $pdo = BaseMYSQL::conexion($host,$bd,$usuario,$pass,$puerto,$charset);

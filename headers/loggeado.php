@@ -9,7 +9,7 @@
     <title> Los Simuladores </title>
   </head>
 <nav class="nav" >
-  <h1> Hola, <?=$_SESSION["nombre"];?>!</h1>
+  <h1> Hola, <?=$_SESSION["name"];?>!</h1>
 
   <ul class="izquierda">
     <li><a href="index.php"> HOME </a></li>

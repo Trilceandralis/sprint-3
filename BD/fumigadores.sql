@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `fumigadores` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+CREATE DATABASE IF NOT EXISTS `fumigadores` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `fumigadores`;
 -- MySQL dump 10.13  Distrib 8.0.16, for macos10.14 (x86_64)
 --
@@ -18,30 +18,30 @@ USE `fumigadores`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usuarios`
+-- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
+DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `usuarios` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NULL,
+  `name` varchar(45) NULL,
   `email` varchar(45) NOT NULL,
   `avatar` varchar(45) NOT NULL,
   `password` varchar(120) NOT NULL,
   `puntaje` int(11) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarios`
+-- Dumping data for table `users`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

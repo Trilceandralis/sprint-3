@@ -4,7 +4,7 @@ if($_POST){
   $usuario = new Usuario($_POST["email"],$_POST["password"]);
   $errores= $validar->validarLogin($usuario);
       if(count($errores)==0){
-  $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail(),$pdo,'usuarios');
+  $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail(),$pdo,'users');
   if($usuarioEncontrado == false){
     $errores["email"]="Usuario no registrado";
   }else{

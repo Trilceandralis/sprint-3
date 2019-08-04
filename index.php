@@ -21,7 +21,7 @@ require_once("autoload.php");
               </div>
 
               <?php
-              if(isset($_SESSION["nombre"])){
+              if(isset($_SESSION["name"])){
         include_once("headers/loggeado.php");
       }else{
         include_once("headers/noLoggeado.php");}

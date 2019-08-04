@@ -1,10 +1,10 @@
 <?php
 
 class BaseMYSQL{
-    static public function conexion($host,$db_nombre,$usuario,$pass,$puerto,$charset){
+    static public function conexion($host,$bd,$usuario,$pass,$puerto,$charset){
         try {
 
-        $dsn = "mysql:dbname=$db_nombre;host=$host;port=$puerto";
+        $dsn = "mysql:dbname=$bd;host=$host;port=$puerto";
         $pdo = new PDO ($dsn, $usuario, $pass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             return $pdo;
@@ -26,11 +26,11 @@ class BaseMYSQL{
     }
 
     static public function guardarUsuario($pdo,$usuario,$tabla,$avatar){
-        $sql = "insert into $tabla (nombre,avatar,email,password) values (:nombre,:avatar,:email,:password)";
+        $sql = "insert into $tabla (name,email,avatar,password) values (:name,:email,:avatar,:password)";
         $query = $pdo->prepare($sql);
-        $query->bindValue(':nombre',$usuario->getnombre());
-        $query->bindValue(':avatar',$avatar);
+        $query->bindValue(':name',$usuario->getname());
         $query->bindValue(':email',$usuario->getEmail());
+        $query->bindValue(':avatar',$avatar);
         $query->bindValue(':password',Encriptar::hashpass($usuario->getpass()));
         // $query->bindValue('role',1); FALTARIA AGREGAR ROL EN LA FUNCION "GuardarUsuario" y en variable $sql.
         $query->execute();
@@ -39,6 +39,6 @@ class BaseMYSQL{
 
     static public function updatePassword ($nuevaPassword, $usuario){
       $hasheada = Ecriptar::hashpass($nuevaPassword);
-      $sql = "UPDATE Usuarios SET password = '$hasheada' WHERE id = '$usuario[$id]'";
+      $sql = "UPDATE users SET password = '$hasheada' WHERE id = '$usuario[$id]'";
     }
 }

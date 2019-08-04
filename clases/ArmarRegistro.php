@@ -1,8 +1,8 @@
 <?php
 class ArmarRegistro{
     public function armarAvatar($imagen){
-        $nombre = $imagen["avatar"]["name"];
-        $ext = pathinfo($nombre,PATHINFO_EXTENSION);
+        $name = $imagen["avatar"]["name"];
+        $ext = pathinfo($name,PATHINFO_EXTENSION);
         $archivoOrigen = $imagen["avatar"]["tmp_name"];
         $archivoDestino = dirname(__DIR__);
         $archivoDestino = $archivoDestino."/imagenes/";
@@ -18,11 +18,10 @@ class ArmarRegistro{
     public function armarUsuario($registro,$avatar){
 
         $usuario = [
-            "name"=>$registro->getNombre(),
+            "name"=>$registro->getname(),
             "email"=>$registro->getEmail(),
-            "password"=> Encriptar::hashPass($registro->getPass()),
             "avatar"=>$avatar,
-            "role"=>1
+            "password"=> Encriptar::hashPass($registro->getPass()),
         ];
 
         return $usuario;

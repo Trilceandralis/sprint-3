@@ -4,12 +4,12 @@ if($_POST){
   $usuario = new Usuario($_POST["email"],$_POST["password"],$_POST["repassword"]);
   $errores= $validar->validarOlvide($usuario);
   if(count($errores)==0){
-  $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail(),$pdo,'usuarios');
+  $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail(),$pdo,'users');
     if($usuarioEncontrado == false){
       $errores["email"]="Usuario no registrado";
     }else{
   
-        $usuarios = BaseMYSQL::buscar ;
+        $users = BaseMYSQL::buscar ;
           redirect("passRecuperada.php");
     }
   }

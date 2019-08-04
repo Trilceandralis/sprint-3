@@ -3,15 +3,15 @@ require_once("autoload.php");
 
 
     if ($_POST){
-      $usuario = new Usuario($_POST["email"],$_POST["password"],$_POST["repassword"],$_POST["nombre"],$_FILES );
+      $usuario = new Usuario($_POST["email"],$_POST["password"],$_POST["repassword"],$_POST["name"],$_FILES );
       $errores = $validar->validarUsuario($usuario, $_POST["repassword"]);
         if(count($errores)==0){
-          $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail(),$pdo,'usuarios');
+          $usuarioEncontrado = BaseMYSQL::buscarPorEmail($usuario->getEmail(),$pdo,'users');
         if($usuarioEncontrado != false){
           $errores["email"]= "ya estás Registrado";
         }else{
           $avatar = $registro->armarAvatar($_FILES);
-            BaseMYSQL::guardarUsuario($pdo,$usuario,'usuarios',$avatar);
+            BaseMYSQL::guardarUsuario($pdo,$usuario,'users',$avatar);
           redirect("login.php");
       }
     }
@@ -60,7 +60,7 @@ require_once("autoload.php");
 
             <div class="campos">
 
-              <input id="nombre" class="fondo-campo" type="text" name="nombre" value="" placeholder="Nombre" >
+              <input id="name" class="fondo-campo" type="text" name="name" value="" placeholder="Nombre" >
 
               <input id="email" class="fondo-campo" type="email" name="email" value="" placeholder="Email" >
 

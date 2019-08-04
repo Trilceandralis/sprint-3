@@ -4,9 +4,9 @@ class Validador{
     public function validarUsuario($usuario){
         $errores = [];
 
-      $nombre = trim($usuario->getNombre());
-        if (empty($nombre)){
-        $errores["nombre"]="Complete su nombre";
+      $name = trim($usuario->getname());
+        if (empty($name)){
+        $errores["name"]="Complete su nombre";
         }
       $email = trim($usuario->getEmail());
         if(empty($email)){
@@ -29,8 +29,8 @@ class Validador{
           if($_FILES["avatar"]["error"]!=UPLOAD_ERR_OK){
               $errores["avatar"]="No olvides subir tu imagen";
           }else{
-            $nombre = $_FILES["avatar"]["name"];
-            $ext = pathinfo($nombre,PATHINFO_EXTENSION);
+            $name = $_FILES["avatar"]["name"];
+            $ext = pathinfo($name,PATHINFO_EXTENSION);
             if($ext != "png" && $ext != "jpg"){
                 $errores["avatar"]="El archivo debe ser png ó jpg";
             }

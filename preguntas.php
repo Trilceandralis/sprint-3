@@ -15,7 +15,7 @@ include_once("controladores/funcionesFUMI.php");
         <img src="imgs/logo.png" alt="logo" class="logo">
 
       <?php
-      if(isset($_SESSION["nombre"])){
+      if(isset($_SESSION["name"])){
   include_once("headers/loggeado.php");
   }else{
   include_once("headers/noLoggeado.php");}
